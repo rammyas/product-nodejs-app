@@ -1,17 +1,14 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+//var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var home = require('./routes/home');
-var product = require('./routes/product');
+var home = require('./src/routes/home');
+var product = require('./src/routes/product');
 
 var app = express();
-
-var connection  = require('express-myconnection');
-var mysql = require('mysql');
 
 var env = process.env.NODE_ENV || 'development';
 app.locals.ENV = env;
@@ -33,21 +30,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', home);
 app.use('/product', product);
-
-
-app.use(
-
-    connection(mysql,{
-
-        host: 'mysql://mysql:3306/', //'localhost',
-        user: 'root',
-        password : '1234',
-        port : 3306, //port mysql
-        database:'mag_schema'
-
-    },'pool') //or single
-
-);
 
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

@@ -1,7 +1,6 @@
 
 var Product=require("../model/Product");
 var HashMap = require('hashmap');
-//var rabbitmqconn=require('../messaging/rabbitmqconnection');
 var productrepository={
 		
 		productMap: null,
@@ -15,7 +14,6 @@ var productrepository={
 		saveProduct:function(product){
 			console.log("save product is called"+product);
 			this.productMap.set(product.productId,JSON.stringify(product));
-			//rabbitmqconn.startMessaging(product.productId);
 			
 		},
 		
