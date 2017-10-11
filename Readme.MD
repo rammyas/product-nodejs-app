@@ -27,7 +27,7 @@ node app.js
 
 url : 
 ```
-http://localhost:3000/product/save
+http://localhost:8080/product/save
 ```
 
 header :
@@ -52,5 +52,13 @@ body:
 Get the product : 
 
 ```
-http://localhost:3000/product/get/{productId}
+http://localhost:8080/product/get/{productId}
+```
+
+
+Mocha chai
+
+updates in package.json, test folder
+```
+run -- 'mocha'
 ```
